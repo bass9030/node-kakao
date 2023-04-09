@@ -213,6 +213,9 @@ export class TalkChannelHandler<T extends Channel> implements Managed<TalkChanne
     data: DefaultRes,
     parentCtx: EventContext<TalkChannelHandlerEvents<T>>
   ): Promise<void> {
+    console.log(`[${new Date().getTime()} | eventType]: ${method}`);
+    console.log(`[${new Date().getTime()} | data]: ${data}`);
+    console.log(`[${new Date().getTime()} | parentCtx]: ${parentCtx}`);
     switch (method) {
       case 'MSG':
         await this._msgHandler(data as DefaultRes & MsgRes, parentCtx);
